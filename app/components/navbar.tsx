@@ -3,10 +3,13 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
+import { useTheme } from '../context/theme-context';
+import { CiLight } from "react-icons/ci";
+import { MdDarkMode } from "react-icons/md";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const {theme, toggleTheme} = useTheme();
   return (
     <nav className="navbar">
       <div className="logo">Portfolio</div>
@@ -20,8 +23,11 @@ export default function Navbar() {
         <li><Link href="/">Home</Link></li>
         <li><Link href="/about">About</Link></li>
         <li><Link href="/projects">Projects</Link></li>
-        <li><Link href="/contact">Contact</Link></li>
+        <li><Link href="/contact">Contact</Link></li>       
       </ul>
+       <div className="mode" onClick={() => toggleTheme()}>
+        {theme === "dark" ? <MdDarkMode /> :<CiLight />  }
+      </div>
     </nav>
   );
 }
