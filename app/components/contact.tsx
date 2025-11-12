@@ -1,60 +1,72 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { BiLogoGmail, BiSend, BiSolidLocationPlus } from "react-icons/bi";
+import { BiLogoGmail, BiSolidLocationPlus } from "react-icons/bi";
 import { BiPhone } from "react-icons/bi";
-import emailjs from 'emailjs-com';
+import * as emailjs from '@emailjs/browser';
 
 export default function Contact() {
     const [userInput, setUserInput] = useState({
         name: '', email: '', message: ''
     });
-    const handleChange = (e) => {
+    const [isLoading, setIsLoading] = useState(false);
+    const handleChange = (e: { target: { name: string; value: string; }; }) => {
         const { name, value } = e.target;
+        console.log(name, value);
+
         setUserInput({
             ...userInput,
             [name]: value
         });
     };
-    const handleSubmit = async (e) => {
+
+    const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
+
+        const emailParams = {
+            name: userInput.name,
+            email: userInput.email,
+            message: userInput.message
+        };
 
         const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
         const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
         const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
- if (!serviceID || !templateID || !userID) {
-            console.log('Configuration EmailJS manquante. Vérifiez vos variables d\'environnement.');
-            // setIsLoading(false);
+
+        if (!serviceID || !templateID || !userID) {
+            console.error("One or many variables are missing!");
             return;
         }
+        setIsLoading(true);
         try {
-            const emailParams = {
-                name: userInput.name,
-                email: userInput.email,
-                message: userInput.message
-            };
-            const res = await emailjs.send(serviceID, templateID, emailParams, userID);
+            const res = await emailjs.send(
+                serviceID,
+                templateID,
+                emailParams,
+                userID
+            );
 
-      if (res.status === 200) {
-        console.log("Message sent successfully!");
-        setUserInput({
-          name: "",
-          email: "",
-          message: ""
-        });
-      }
+            if (res.status === 200) {
+                alert("Message sent successfully");
+                setUserInput({ name: '', email: '', message: '' });
+                setIsLoading(false);
+            } else {
+                alert("Failed to send message. Please try again later.");
+            }
         } catch (error) {
+            alert("Error");
             console.log(error);
-
+            setIsLoading(false);
         }
+    };
 
-    }
     return (
         <section id="contact">
             <div className="container mx-auto max-w-5xl px-4 ">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-                    Get In <span className="text-amber-500">Touch</span>
+                <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 text-center">
+                    Contact <span className="text-amber-500">Me</span>
                 </h2>
+
                 <p className="text-center mb-12 max-w-5xl max-auto">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
                     itaque ipsum vitae rem similique fugit dolor unde eum sit omnis nulla
@@ -62,7 +74,7 @@ export default function Contact() {
                     numquam.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div className="space-y-8 px-5 bg-indigo-100">
+                    <div className="space-y-8">
                         <h3 className="text-2xl font-semibold mb-6">
                             Contact information
                         </h3>
@@ -109,48 +121,54 @@ export default function Contact() {
                         </div>
 
                     </div>
-                    {/*  */}
+                    {/* */}
                     <div className="space-y-4 rounded-lg shadow-xs">
                         <h3 className="text-2xl font-bold mb-6"> Send a message</h3>
-                        <form action="" className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
-                                <label htmlFor=""
+                                <label htmlFor="name"
                                     className="mb-2 font-medium block text-sm"
                                 >Your Name</label>
-                                <input type="text" name="text" id="name"       value={userInput.name}
+                                <input type="text" name="name" id="name" value={userInput.name}
                                     onChange={handleChange} required
                                     placeholder="Enter your name"
-                                    className="w-full px- py-3 rounded-md boder-input focus:outline-hidden focus:ring-2"
+                                    className="w-full px-3 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
                                 />
                             </div>
                             {/* email */}
                             <div>
-                                <label htmlFor=""
+                                <label htmlFor="email"
                                     className="mb-2 font-medium block text-sm"
                                 >Your Email</label>
-                                <input type="email" name="email" id="email"  value={userInput.email}
+                                <input type="email" name="email" id="email"
+                                    value={userInput.email}
                                     onChange={handleChange} required
                                     placeholder="Enter your email"
-                                    className="w-full px- py-3 rounded-md boder-input focus:outline-hidden focus:ring-2"
+                                    className="w-full px-3 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
                                 />
                             </div>
-                            {/* email */}
+                            {/* message */}
                             <div>
-                                <label htmlFor=""
+                                <label htmlFor="message"
                                     className="mb-2 font-medium block text-sm"
                                 >Your Message</label>
                                 <textarea
                                     name="message" id="message" required
-                                     value={userInput.message} onChange={handleChange}
+                                    value={userInput.message} onChange={handleChange}
                                     placeholder="Enter your message"
-                                    className="w-full px- py-3 rounded-md boder-input focus:outline-hidden focus:ring-2 resize-none"
+                                    rows={4}
+                                    className="w-full px-3 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"
                                 />
                             </div>
                             <button type="submit"
-                                className="flex items-center justify-center gap-2 w-full bg-amber-200"
-                                onSubmit={handleSubmit}
+                                className="flex items-center justify-center gap-2 w-full bg-amber-500 text-white py-3 rounded-md hover:bg-amber-600 transition-colors"
+
                             >
-                                Send Message <BiSend size={24} />
+                                {isLoading ? (
+                                    "Loading..."
+                                ) : (
+                                    "Send Message"
+                                )}
                             </button>
                         </form>
                     </div>
