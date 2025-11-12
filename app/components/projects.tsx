@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Projects() {
     const projects = [
         {
-            image: '/dan-laptop.png',
+            image: '/assets/desktop-design-completed.jpg',
             alt: 'Capture d\'écran du projet Dan Laptop',
             title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque odit aperiam fugit reiciendis quasi nisi pariatur, eos, abnihil, itaque minus. Ut tempora, amet voluptate omnis laboriosam nisivelit.",
@@ -12,7 +13,7 @@ export default function Projects() {
             github: 'https://github.com/votre-repo/dan-laptop'
         },
         {
-            image: '/project2.png',
+            image: '/assets/desktop-design.jpg',
             alt: 'Application de gestion de tâches',
             title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque odit aperiam fugit reiciendis quasi nisi pariatur, eos, abnihil, itaque minus. Ut tempora, amet voluptate omnis laboriosam nisivelit.",
@@ -21,7 +22,7 @@ export default function Projects() {
             github: 'https://github.com/votre-repo/task-manager'
         },
         {
-            image: '/project3.png',
+            image: '/assets/desktop-design-step-1.jpg',
             alt: 'Plateforme de recettes',
             title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque odit aperiam fugit reiciendis quasi nisi pariatur, eos, abnihil, itaque minus. Ut tempora, amet voluptate omnis laboriosam nisivelit.",
@@ -29,18 +30,17 @@ export default function Projects() {
             live: 'https://chef-companion.com',
             github: 'https://github.com/votre-repo/chef-companion'
         },
+        
     ];
     return (
         <section id="projects" className="w-full min-h-screen flex
 items-center justify-center py-16">
             <div className="container mx-auto px-4">
-                {/* En-tête */}
                 <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
+                    <h1 className="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">
                         Projects
                     </h1>
                 </div>
-                {/* Grille des projets */}
                 <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
                         <div
@@ -50,13 +50,21 @@ hover:shadow-xl transition-all duration-300 group"
                         >
                             {/* Image du projet */}
                             <div className="relative overflow-hidden">
-                                <img
+                                {/* <img
                                     src={project.image}
                                     alt={project.alt}
                                     className="w-full h-48 object-cover group-hover:scale-105
 transition-transform duration-300"
+                                /> */}
+                                <Image
+                                    height={500}
+                                    width={500}
+                                      src={project.image}
+                                    alt={project.alt}
+                                    className="w-full h-60 object-cover group-hover:scale-105
+transition-transform duration-300"
                                 />
-                                <div className="absolute inset-0 bg-black bg-opacity-0
+                                <div className="absolute inset-0 bg-opacity-0
 group-hover:bg-opacity-10 transition-all duration-300" />
                             </div>
                             {/* Contenu */}
