@@ -96,7 +96,7 @@ rounded-full text-sm font-medium"
                                         className="flex-1 py-2 px-4 border border-gray-300 rounded-lg
 text-center font-medium hover:bg-amber-600 hover:text-white
 transition-colors duration-200 text-sm sm:text-base md:text-lg
-break-words max-w-full"
+wrap-break-word max-w-full"
                                     >
                                         View Project
                                     </Link>
@@ -108,7 +108,7 @@ break-words max-w-full"
                                         className="flex-1 border border-gray-300 py-2 px-4 rounded-lg
 text-center font-medium hover:bg-amber-600 hover:text-white
 transition-colors duration-200 text-sm sm:text-base md:text-lg
-break-words max-w-full"
+wrap-break-word max-w-full"
                                     >
                                         View Github
                                     </Link>
