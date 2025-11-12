@@ -1,6 +1,6 @@
 export default function HeroSection() {
     return (
-        <section className="w-full min-h-screen flex items-center justify-center bg-white py-16">
+        <section className="w-full min-h-screen flex items-center justify-center bg-white py-16" id="home">
             <div className="container mx-auto px-4 flex flex-col items-center gap-6 text-center">
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">
                     Hi, I&apos;m <span className="text-amber-500">Olfa Lafi</span>

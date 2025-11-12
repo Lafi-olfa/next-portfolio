@@ -42,7 +42,7 @@ export default function Skills() {
     return (
         <section id="skills" className="w-full min-h-screen flex items-center justify-center py-16">
             <div className="container mx-auto px-4 text-center text-xl">
-                <h1>My <span className="text-amber-500">Skills</span></h1>
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">My Skills </h1>
                 <div className="grid grid-cols-4 gap-4 mt-4">
                     {
                         skills.map((skill, i) => (

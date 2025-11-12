@@ -2,7 +2,7 @@ export default function About() {
     return (
   
 <section className="w-full min-h-screen flex items-center
-justify-center py-16 ">
+justify-center py-16" id="about">
 <div className="container mx-auto px-4 text-center">
 <h1 className="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">
 About Me
