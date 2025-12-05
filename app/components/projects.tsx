@@ -9,8 +9,8 @@ export default function Projects() {
             title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque odit aperiam fugit reiciendis quasi nisi pariatur, eos, abnihil, itaque minus. Ut tempora, amet voluptate omnis laboriosam nisivelit.",
             technologies: ['React', 'Tailwind CSS', 'Next.js', 'Stripe'],
-            live: 'https://dan-laptop.com',
-            github: 'https://github.com/votre-repo/dan-laptop'
+            live: 'https://react-tip-calculator-blond.vercel.app/',
+            github: 'https://github.com/Lafi-olfa/react-tip-calculator'
         },
         {
             image: '/assets/desktop-design.jpg',
@@ -19,16 +19,16 @@ export default function Projects() {
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque odit aperiam fugit reiciendis quasi nisi pariatur, eos, abnihil, itaque minus. Ut tempora, amet voluptate omnis laboriosam nisivelit.",
             technologies: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
             live: 'https://taskmanager.com',
-            github: 'https://github.com/votre-repo/task-manager'
+            github: 'https://github.com/Lafi-olfa/react-expenses-chart-component'
         },
         {
             image: '/assets/desktop-design-step-1.jpg',
             alt: 'Plateforme de recettes',
             title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque odit aperiam fugit reiciendis quasi nisi pariatur, eos, abnihil, itaque minus. Ut tempora, amet voluptate omnis laboriosam nisivelit.",
-            technologies: ['Next.js', 'MongoDB', 'NextAuth', 'Tailwind CSS'],
-            live: 'https://chef-companion.com',
-            github: 'https://github.com/votre-repo/chef-companion'
+            technologies: ['ReactJs ','Tailwind CSS'],
+            live: 'https://react-mutli-step-form.vercel.app/',
+            github: 'https://github.com/Lafi-olfa/react-mutli-step-form'
         },
         
     ];
