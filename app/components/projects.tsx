@@ -3,29 +3,47 @@ import Link from "next/link";
 
 export default function Projects() {
     const projects = [
+         {
+            image: '/assets/desktop-design-bookmark.jpg',
+            alt: 'bookmarkflow-app',
+            title: 'Bookmark manager app',
+            description: "Developed a full-stack bookmark management application using React, TypeScript, Node.js, Express, and MongoDB, following the provided Figma design. Built a RESTful API to handle bookmark creation, retrieval, updating, searching, filtering,pinning, soting, archiving, and deletion. Implemented authentication features including user registration, login, password recovery, and password reset. The application support dark/light theme.",
+            technologies: ['React', 'TypeScript', 'MongoDB', 'Figma', 'Tailwind CSS', 'REST API'],
+            live: 'https://github.com/Lafi-olfa/react-expenses-chart-component',
+            github: 'https://github.com/Lafi-olfa/react-expenses-chart-component'
+        },
+        {
+            image: '/assets/desktop-design-entertainment.jpg',
+            alt: 'entertainment-web-app',
+            title: 'Entertainment-web app',
+            description: "Currently developing a responsive entertainment web application using React and TypeScript, following the provided Figma design. The application allows users to navigate between movies, TV series, home, and bookmarked content, search for shows, and manage their favorites.Actuallay, The project focuses on client-side routing, state management, dynamic data rendering, reusable React components, and responsive UI development.",
+            technologies: ['React', 'TypeScript', 'Figma', 'Tailwind CSS'],
+            live: 'https://github.com/Lafi-olfa/entertainment-app',
+            github: 'https://github.com/Lafi-olfa/entertainment-app'
+        },
         {
             image: '/assets/desktop-design-completed.jpg',
-            alt: 'Capture d\'écran du projet Dan Laptop',
-            title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque odit aperiam fugit reiciendis quasi nisi pariatur, eos, abnihil, itaque minus. Ut tempora, amet voluptate omnis laboriosam nisivelit.",
+            alt: 'tip-calculator-app',
+            title: 'Tip Calculator App',
+            description: "A responsive web application that calculates the tip amount and total cost per person based on the entered bill, selected tip percentage, and number of people. The project focuses on creating a clean and intuitive user interface, responsive layouts, real-time calculations, input validation, and smooth user interactions while accurately implementing the provided Figma design.",
             technologies: ['React', 'Tailwind CSS', 'Next.js', 'Stripe'],
             live: 'https://react-tip-calculator-blond.vercel.app/',
             github: 'https://github.com/Lafi-olfa/react-tip-calculator'
         },
         {
             image: '/assets/desktop-design.jpg',
-            alt: 'Application de gestion de tâches',
-            title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque odit aperiam fugit reiciendis quasi nisi pariatur, eos, abnihil, itaque minus. Ut tempora, amet voluptate omnis laboriosam nisivelit.",
-            technologies: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
+            alt: 'expenses-chart-component',
+            title: 'Expenses chart component',
+            description: "Built a responsive and interactive expense chart using React, following the provided Figma design. The chart dynamically renders weekly spending data from a local JSON file and uses React state management to display interactive tooltips and highlight individual bars on hover. The project focuses on reusable component-based development, dynamic data rendering, and responsive UI implementation.",
+            technologies: ['React', 'JavaScript', 'Figma'],
             live: 'https://taskmanager.com',
             github: 'https://github.com/Lafi-olfa/react-expenses-chart-component'
         },
         {
             image: '/assets/desktop-design-step-1.jpg',
-            alt: 'Plateforme de recettes',
-            title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eaque odit aperiam fugit reiciendis quasi nisi pariatur, eos, abnihil, itaque minus. Ut tempora, amet voluptate omnis laboriosam nisivelit.",
+            alt: 'multi-step-form',
+            title: 'Multi-step form',
+            description: "Built a responsive multi-step form, following the provided Figma design. The application features step-by-step navigation, state management, editable selections, form validation, email format validation, and a final summary before confirmation.",
             technologies: ['ReactJs ','Tailwind CSS'],
             live: 'https://react-mutli-step-form.vercel.app/',
             github: 'https://github.com/Lafi-olfa/react-mutli-step-form'
@@ -72,7 +90,7 @@ group-hover:bg-opacity-10 transition-all duration-300" />
                                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                                     {project.title}
                                 </h3>
-                                <p className="text-gray-600 mb-4 leading-relaxed">
+                                <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3 hover:line-clamp-none transition-all duration-300">
                                     {project.description}
                                 </p>
                                 {/* Technologies */}
