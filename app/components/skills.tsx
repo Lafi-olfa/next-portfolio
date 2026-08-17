@@ -6,8 +6,8 @@ export default function Skills() {
         {
             category: 'All',
             skillsList: [
-                'HTML/CSS', "JavaScript", "TypeScript",
-                "Bootstrap", "Tailwind CSS", "Next.js", "React.js",
+              "Next.js", "React.js", "JavaScript", "TypeScript",
+                "Bootstrap", "Tailwind CSS",
                 "Meteor.js", "Node.js", "Express.js",
                 "CodeIgniter", "REST API", "MongoDB",
                 "Cypress"
@@ -16,7 +16,7 @@ export default function Skills() {
         {
             category: 'Frontend',
             skillsList: [
-                'HTML/CSS', "JavaScript", "TypeScript",
+                "JavaScript", "TypeScript",
                 "Bootstrap", "Tailwind CSS", "Next.js", "React.js"
             ]
         },
