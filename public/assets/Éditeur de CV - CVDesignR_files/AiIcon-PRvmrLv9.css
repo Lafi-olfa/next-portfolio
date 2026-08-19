@@ -1,0 +1,1 @@
+@keyframes sparkleRotate{0%,to{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.05)}}@keyframes twinkle1{0%,to{opacity:1;transform:scale(1)}50%{opacity:1;transform:scale(.9)}}@keyframes twinkle2{0%,to{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}.main-star,.star-small,.star-tiny{transform-origin:center}
