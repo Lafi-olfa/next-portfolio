@@ -18,7 +18,7 @@ export default function Contact() {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleChange = (e) => {
+    const handleChange = (e: { target: { name: any; value: any; }; }) => {
         const { name, value } = e.target;
 
         setUserInput((prev) => ({
@@ -27,7 +27,7 @@ export default function Contact() {
         }));
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 
         const emailParams = {
@@ -36,9 +36,9 @@ export default function Contact() {
             message: userInput.message,
         };
 
-  const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-        const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-        const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+        const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
+        const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
+        const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
 
         setIsLoading(true);
 
