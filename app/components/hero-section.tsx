@@ -2,14 +2,6 @@ import Link from "next/link";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 export default function HeroSection() {
-    const technologies = [
-        "Meteor.js",
-        "Next.js",
-        "TypeScript",
-        "Node.js",
-        "MongoDB",
-    ];
-
     return (
         <section
             id="home"
