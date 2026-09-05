@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import {
     BiLogoGmail,
     BiSolidLocationPlus,
@@ -9,8 +10,21 @@ import {
 } from "react-icons/bi";
 import * as emailjs from "@emailjs/browser";
 
+interface UserInput {
+    name: string;
+    email: string;
+    message: string;
+}
+
+interface ContactInfo {
+    icon: ReactNode;
+    title: string;
+    value: string;
+    href: string;
+}
+
 export default function Contact() {
-    const [userInput, setUserInput] = useState({
+    const [userInput, setUserInput] = useState<UserInput>({
         name: "",
         email: "",
         message: "",
@@ -18,7 +32,9 @@ export default function Contact() {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleChange = (e: { target: { name: any; value: any; }; }) => {
+    const handleChange = (
+        e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
         const { name, value } = e.target;
 
         setUserInput((prev) => ({
@@ -27,7 +43,7 @@ export default function Contact() {
         }));
     };
 
-    const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const emailParams = {
@@ -68,7 +84,7 @@ export default function Contact() {
         }
     };
 
-    const contactInfo = [
+    const contactInfo: ContactInfo[] = [
         {
             icon: <BiLogoGmail size={22} />,
             title: "Email",
