@@ -58,7 +58,7 @@ export default function HeroSection() {
                             </Link>
 
                             <Link
-                                href="TON_LINKEDIN"
+                                href="https://www.linkedin.com/in/olfa-lafi-9314a51b4/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="LinkedIn"
